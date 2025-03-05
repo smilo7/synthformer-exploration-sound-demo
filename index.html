@@ -6,12 +6,13 @@
     <title>Sound Demo for Synthformer</title>
 </head>
 <body>
-    <h1>Sound demo for synthformer</h1>
+    <h1>Sound exploration demo for synthformer</h1>
 
     <p>I mainly explored trying to transition from one sound to another creatively.</p>
 
     <p>Here are my source samples chopped to 5 seconds, mono, 44100 Hz, 16 bit, wav files.</p>
 
+    <p>Find the code original code for the DACSynthformer <a href="https://github.com/lonce/DACSynthformer">here</a>.</p>
     
     <audio controls>
         <source src="sources/stove-click.wav" type="audio/wav">
@@ -53,9 +54,9 @@
     <audio controls>
         <source src="sounds/32 model - 2000 epochs.wav" type="audio/wav">
         Your browser does not support the audio element.
-    </audio>512 model 100 epoch whistle problem.wav
+    </audio>
     
-    <h2>Larger model (512 embed, 100 epoch). Getting stuck in "simple" sounds</h2>
+    <h2>Larger model (512 embed, 100 epoch). Getting stuck in certain sounds</h2>
     <p>We found that at early epoch iterations 50-100 epochs or so that even when we would use a conditionning pattern of to go from one class to another it would get stuck on the whistle sound. 
         Not neccessary to go quite this big for a small dataset model size of 256 also worked quite well.</p>
     <audio controls>
