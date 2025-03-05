@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sound Demo for Synthformer</title>
+</head>
+<body>
+    <h1>Sound demo for synthformer</h1>
+
+    <p>I mainly explored trying to transition from one sound to another creatively.</p>
+
+    <p>Here are my source samples chopped to 5 seconds, mono, 44100 Hz, 16 bit, wav files.</p>
+
+    
+    <audio controls>
+        <source src="sources/stove-click.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/steam-engine-idle.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/steam-engine.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/steam-train.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/kettle-boiling.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/whistle.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    <audio controls>
+        <source src="sources/amen-break.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <h1>Experiment Results</h1>
+
+    <h2>Small model (32 embed, 2000 epoch)</h2>
+    <p>Model of size 32, trained for 2000 epochs. 
+        We here some small bit of source material but mainly signature DAC codebook noise hearing voices that are not there.
+        Note that we used only a limited subset of the source material in this example (mainly engine, boiling and drum break sounds), we can only fairly clearly hear the kettle boiling sound (at around 12 sec).
+    </p>
+    <audio controls>
+        <source src="sounds/32 model - 2000 epochs.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>512 model 100 epoch whistle problem.wav
+    
+    <h2>Larger model (512 embed, 100 epoch). Getting stuck in "simple" sounds</h2>
+    <p>We found that at early epoch iterations 50-100 epochs or so that even when we would use a conditionning pattern of to go from one class to another it would get stuck on the whistle sound. 
+        Not neccessary to go quite this big for a small dataset model size of 256 also worked quite well.</p>
+    <audio controls>
+        <source src="sounds/512 model 100 epoch whistle problem.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+
+    <h2>Final result best "morph". (512 embed, 500 epochs)</h2>
+    <p>The final result shows quite good representation of each of the source sounds and transitions between with some minimal noise.
+        We had to increase the length of the output so that each of the sounds had a chance of getting in.
+        The transitions are not as smooth as we would have liked and quite rapid despite our conditionning pattern.</p>
+    <audio controls>
+        <source src="sounds/full morph transition 512 model 500 epoch.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    
+
+    <h2>Fun with breaks. Can I get an amennnn!!</h2>
+    <p>Great for reinterpreting breaks. We should have tested with more.. got stuck for too long on kettles...</p>
+    <audio controls>
+        <source src="sounds/512 model 500 epoch.wav" type="audio/wav">
+        Your browser does not support the audio element.
+    </audio>
+    
+</body>
+</html>
